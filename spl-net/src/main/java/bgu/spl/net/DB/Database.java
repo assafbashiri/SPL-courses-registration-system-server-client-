@@ -45,8 +45,23 @@ public class Database {
 	private static class SingletonHolder {
 		private static Database instance = new Database();
 	}
+	public Course getCourse(int num){
+		return courses.get(num);
+	}
 
-	public static  void main(String[] args) {
+	public boolean userChack (String username){
+		if(username==null || users.containsKey(username))
+			return true;
+		return false;
+	}
+	public void addUser(User user){
+		String username = user.username;
+		users.put(username,user);
+	}
+	public User getUser(String username){
+		return users.get(username);
+	}
+	public static  void courseReader(String[] args) {
 		try {
 			File myObj = new File("Courses.txt");
 			Scanner myReader = new Scanner(myObj);

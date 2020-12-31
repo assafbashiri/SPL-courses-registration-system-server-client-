@@ -17,6 +17,9 @@ public class Student extends User{
     public String getUsername() {
         return username;
     }
+    public List<Integer> getCourseList(){
+        return courseList;
+    }
 
 
     public String getPassword() {
@@ -26,5 +29,6 @@ public class Student extends User{
     public void addCourse(int courseNum){
         courseList.add(courseNum);
     }
+
 
 }
