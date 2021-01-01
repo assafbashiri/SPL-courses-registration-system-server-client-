@@ -16,7 +16,7 @@ public class LOGOUT implements Command<String[]> {
         if(!user.isConnected)
             return "ERROR 04"; //not connected
         else {
-            user.disConnect();
+            data.disConnectUser(username);
             protocol.terminate();
         }
         return "ACK 04";

@@ -61,6 +61,7 @@ public class Database {
 	public User getUser(String username){
 		return users.get(username);
 	}
+
 	public static  void courseReader(String[] args) {
 		try {
 			File myObj = new File("Courses.txt");
@@ -75,6 +76,17 @@ public class Database {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
+	}
+	public void connectUser(String username){
+		users.get(username).connect();
+	}
+	public void disConnectUser(String username){
+		users.get(username).disConnect();
+	}
+	public void registerCourse(String username, int num){
+		User user = users.get(username);
+		((Student)user).addCourse(num);
+		courses.get(num).addStudent(username);
 	}
 
 	public static Course readLine(String data){

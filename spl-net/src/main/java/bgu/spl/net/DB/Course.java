@@ -6,17 +6,17 @@ import java.util.List;
 public class Course {
     private int idNumber;
     private String courseName;
-    private Integer[] kdam;
+    private int[] kdam;
     private int totalStudents;
-    private int currStudents;
+    private int availableSeats;
     private List<String> studentList;
 
-    public Course(int id , String name , Integer[] kdam , int total) {
+    public Course(int id , String name , int[] kdam , int total) {
         this.idNumber = id;
         this.courseName = name;
         this.kdam = kdam;
         this.totalStudents = total;
-        this.currStudents = 0;
+        this.availableSeats = total;
         studentList = new ArrayList<String>();
 
 
@@ -33,7 +33,7 @@ public class Course {
 
 
 
-    public Integer[] getKdam() {
+    public int[] getKdam() {
         return kdam;
     }
 
@@ -43,18 +43,16 @@ public class Course {
     }
 
 
-    public int getCurrStudents() {
-        return currStudents;
+    public int getAvailableSeats() {
+        return availableSeats;
     }
 
     public List<String> getStudentList(){
         return studentList;
     }
-    public boolean addStudent(String name) {
-        if(currStudents==totalStudents)
-            return false;
-        this.currStudents = currStudents++;
+
+    public void addStudent(String name) {
+        this.availableSeats = availableSeats-1;
         studentList.add(name);
-        return true;
     }
 }

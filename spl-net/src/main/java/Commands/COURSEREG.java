@@ -16,7 +16,7 @@ public class COURSEREG implements Command<String[]> {
         User user = data.getUser(protocol.getUsername());
 
         if(!(user instanceof Student)){
-            return "ERROR 05";
+            return "ERROR 05"; //not a student
         }
         for(int i =0;i<course.getKdam().length;i++){
             if(!((Student) user).getCourseList().contains(course.getKdam()[i]))
@@ -24,10 +24,10 @@ public class COURSEREG implements Command<String[]> {
         }
         if(((Student) user).getCourseList().contains(courseNum) )
             return "ERROR 05";//the student is registered to the course
-        if(!course.addStudent(user.getUsername()))
+        if(course.getAvailableSeats()==0)
             return "ERROR O5"; //the course is full
         else {
-            ((Student) user).addCourse(courseNum);
+            data.registerCourse(user.getUsername(),courseNum);
         }
         return "ACK 05";
 

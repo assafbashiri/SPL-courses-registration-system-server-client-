@@ -19,7 +19,7 @@ public class LOGIN implements Command<String[]> {
         if (user.isConnected)
             return "ERROR 03"; //connected already
         else {
-            user.connect();
+            data.connectUser(username);
         }
         return "ACK 03";
     }
