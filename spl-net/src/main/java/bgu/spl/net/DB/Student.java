@@ -17,6 +17,7 @@ public class Student extends User{
     public String getUsername() {
         return username;
     }
+
     public List<Integer> getCourseList(){
         return courseList;
     }
@@ -30,5 +31,13 @@ public class Student extends User{
         courseList.add(courseNum);
     }
 
-
+    public boolean removeCourse(int courseNum){
+        for (int num : courseList){
+            if (num == courseNum) {
+                courseList.remove(courseNum);
+                return true;
+            }
+        }
+        return false;
+    }
 }

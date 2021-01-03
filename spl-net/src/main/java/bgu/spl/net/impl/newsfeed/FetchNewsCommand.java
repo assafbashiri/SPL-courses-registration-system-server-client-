@@ -1,5 +1,6 @@
 package bgu.spl.net.impl.newsfeed;
 
+import bgu.spl.net.api.ProtocolIMP;
 import bgu.spl.net.impl.rci.Command;
 import java.io.Serializable;
 
@@ -12,7 +13,7 @@ public class FetchNewsCommand implements Command<NewsFeed> {
     }
 
     @Override
-    public Serializable execute(NewsFeed feed) {
+    public Serializable execute(NewsFeed feed, ProtocolIMP a) {
         return feed.fetch(channel);
     }
 

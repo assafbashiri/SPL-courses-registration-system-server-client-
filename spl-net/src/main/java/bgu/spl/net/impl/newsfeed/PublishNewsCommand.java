@@ -1,5 +1,6 @@
 package bgu.spl.net.impl.newsfeed;
 
+import bgu.spl.net.api.ProtocolIMP;
 import bgu.spl.net.impl.rci.Command;
 import java.io.Serializable;
 
@@ -14,7 +15,7 @@ public class PublishNewsCommand implements Command<NewsFeed> {
     }
  
     @Override
-    public Serializable execute(NewsFeed feed) {
+    public Serializable execute(NewsFeed feed , ProtocolIMP protocolIMP) {
         feed.publish(channel, news);
         return "OK";
     }
