@@ -10,7 +10,7 @@ public class LOGOUT implements Command<String[]> {
     @Override
     public Serializable execute(String[] arg, ProtocolIMP protocol) {
         String username = protocol.getUsername();
-        if(data.userChack(username) )
+        if(!data.userChack(username) )
             return "ERROR 04"; //not registered
         User user = data.getUser(username);
         if(!user.isConnected)

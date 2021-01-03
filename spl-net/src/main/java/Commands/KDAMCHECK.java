@@ -15,7 +15,7 @@ public class KDAMCHECK implements Command<String[]> {
         Course course = data.getCourse(courseNum);
         User user = data.getUser(protocol.getUsername());
         if(!(user instanceof Student)){
-            return "ERROR 06"; //not a student
+            return "ERROR 06/0"; //not a student
         }
         return course.getKdam().toString(); //לבדוק
     }

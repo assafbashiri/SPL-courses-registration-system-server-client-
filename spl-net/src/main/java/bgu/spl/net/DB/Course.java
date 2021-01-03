@@ -55,4 +55,8 @@ public class Course {
         this.availableSeats = availableSeats-1;
         studentList.add(name);
     }
+    public void removeStudent(String username){
+        studentList.remove(username);
+        availableSeats = availableSeats+1;
+    }
 }

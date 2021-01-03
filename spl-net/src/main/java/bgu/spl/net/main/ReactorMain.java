@@ -5,8 +5,7 @@ import bgu.spl.net.api.ProtocolIMP;
 import bgu.spl.net.srv.Server;
 
 public class ReactorMain {
-    public static void main(String[] args){
-        String port = args[0];
+    public static void reactorMain(String port,String numOfTread){
         Server.reactor(
                 Runtime.getRuntime().availableProcessors(),
                 Integer.decode(port),

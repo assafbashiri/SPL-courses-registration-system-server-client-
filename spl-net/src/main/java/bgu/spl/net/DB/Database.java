@@ -50,13 +50,17 @@ public class Database {
 	}
 
 	public boolean userChack (String username){
-		if(username==null || users.containsKey(username))
-			return true;
-		return false;
+		return users.containsKey(username);
 	}
 	public void addUser(User user){
 		String username = user.username;
 		users.put(username,user);
+	}
+	public boolean removeCourse(String username,int num){
+		User user = users.get(username);
+		boolean output = ((Student)user).removeCourse(num);
+		courses.get(num).removeStudent(username);
+		return output;
 	}
 	public User getUser(String username){
 		return users.get(username);

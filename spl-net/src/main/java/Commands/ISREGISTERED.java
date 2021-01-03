@@ -20,6 +20,6 @@ public class ISREGISTERED implements Command<String[]> {
             if (user1.getUsername() == user.getUsername())
                 return "REGISTERD";
         }
-        return "NOT REGISTERED";
+        return "NOT REGISTERED/0";
     }
 }

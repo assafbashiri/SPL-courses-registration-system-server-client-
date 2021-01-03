@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class EncoderDecoderIMP implements MessageEncoderDecoder<String> {
-    private byte[] bytes = new byte[1 << 10]; //start with 1k
+    private byte[] bytes = new byte[1 << 10];
     private int length = 0;
 
     public EncoderDecoderIMP(){}
@@ -20,8 +20,7 @@ public class EncoderDecoderIMP implements MessageEncoderDecoder<String> {
 
     @Override
     public byte[] encode(String message) {
-        byte[] messageBytes = (message).getBytes();
-        return messageBytes;
+        return (message+"\0").getBytes();
     }
 
     private void pushByte(byte nextByte) {

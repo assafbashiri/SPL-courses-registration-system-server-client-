@@ -19,7 +19,7 @@ public class UNREGISTER implements Command<String[]> {
             return "ERROR 10";
         Student student = (Student) user;
         List<Integer> courses = student.getCourseList();
-        boolean haveCourse = student.removeCourse(Integer.parseInt(arg[1]));
+        boolean haveCourse = data.removeCourse(protocol.getUsername(),Integer.parseInt(arg[1]));
         if (haveCourse)
             return "ACK 10";
         return "ERROR 10";

@@ -15,13 +15,14 @@ public class STUDENTSTAT implements Command<String[]> {
     public Serializable execute(String[] arg, ProtocolIMP protocol) {
         User user = data.getUser(protocol.getUsername());
         if (!(user instanceof Admin))
-            return "ERROR 8 ";
+            return "ERROR 08";
         Admin admin = (Admin) user;
         Student student =(Student) data.getUser(arg[1]);
-        if (student == null)
-            return "ERROR 8";
+        if (student == null || data.userChack(student.getUsername()))
+            return "ERROR 08";
         List<Integer> list= student.getCourseList();
-        String toReturn = "Student: " + arg[1] +new StringBuilder().append("\n").append(" ").append("Courses: ").append(list).toString();
+        String toReturn = "Student: " + arg[1] +
+                new StringBuilder().append("\n").append(" ").append("Courses: ").append(list).toString(); //מה זה?
         return toReturn;
 
 

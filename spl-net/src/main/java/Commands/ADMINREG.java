@@ -13,7 +13,7 @@ public class ADMINREG implements Command<String[]> {
         String username = arg[1];
         String password = arg[2];
         if (data.userChack(username))
-            return "ERROR 01";
+            return "ERROR 01"; //registered already
         else {
             User user = new Admin(username, password);
             data.addUser(user);

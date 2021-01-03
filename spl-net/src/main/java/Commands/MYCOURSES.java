@@ -14,7 +14,7 @@ public class MYCOURSES implements Command<String[]> {
     @Override
     public Serializable execute(String[] arg, ProtocolIMP protocol) {
         User user = data.getUser(protocol.getUsername());
-        if (user == null ||user instanceof Admin)
+        if (user == null || user instanceof Admin)
             return "ERROR 11";
         Student student =(Student) user;
         List<Integer> list = student.getCourseList();

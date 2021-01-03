@@ -5,8 +5,7 @@ import bgu.spl.net.api.ProtocolIMP;
 import bgu.spl.net.srv.Server;
 
 public class TPCMain {
-    public static void main(String[] args){
-        String port =args[0];
+    public static void tpcMain(String port){
         Server.threadPerClient(
                 Integer.decode(port),
                 ProtocolIMP::new,

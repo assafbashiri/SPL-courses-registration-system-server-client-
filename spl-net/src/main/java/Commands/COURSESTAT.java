@@ -17,8 +17,8 @@ public class COURSESTAT implements Command<String[]> {
         if(!(user instanceof Admin))
             return "ERROR 07"; //not a admin
         //הוסיף הורדת שורה!!!
-        String output = "Course: ("+courseNum+") "+ course.getCourseName() +
-                "Seats Available: " + course.getAvailableSeats()+ "/" + course.getTotalStudents() +
+        String output = "Course: ("+courseNum+") "+ course.getCourseName() +"/n"+
+                "Seats Available: " + course.getAvailableSeats()+ "/" + course.getTotalStudents() +"/n"+
                 "Students Registered:" + course.getStudentList().toString();
         return output;
     }
