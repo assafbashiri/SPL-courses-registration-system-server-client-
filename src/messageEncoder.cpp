@@ -11,12 +11,12 @@
 messageEncoder::messageEncoder() noexcept{}
 using namespace std;
 
-vector<char> messageEncoder::argumentToByte(string argument) {
+vector<char> messageEncoder::argumentToByte(string msg) {
     int n = argument.length();
-
     char char_array[n + 1];
-
     strcpy(char_array, argument.c_str());
+    //vector<char> chars(msg.begin(),msg.end());
+
     return char_array;
 }
 
@@ -27,19 +27,15 @@ vector<char> messageEncoder::encode(string message) {
     vector<char> toReturn;
     string opCode = words[0];
     short function = opToNumber(opCode);//find the op
-    char op = opCodeToByte(function);
+    char[] op = shortToByte(function);
     if (op == 01 | op == 02 | op == 03){
     toReturn.push_back(op);
-    vector<char> arg = argumentToByte(words[1]);
-    for (char a:arg){
-        toReturn.push_back(a);
-    }
     vector<char> add = argumentToByte(words[1]);
     toReturn.insert(toReturn.end() ,add.begin(),add.end() );
-    toReturn.push_back('0');
+    toReturn.push_back('00');
     add = argumentToByte(words[2]);
     toReturn.insert(toReturn.end() ,add.begin(),add.end() );
-    toReturn.push_back('0');
+    toReturn.push_back('00');
     //op string  0 string 0
     // 5 in vector
     }
@@ -52,22 +48,25 @@ vector<char> messageEncoder::encode(string message) {
     //op 2byte
     // 2 in vector
     toReturn.push_back(op);
-    toReturn.push_back(argumentToByte(words[1]));
+    vector<char> add = argumentToByte(words[1]);
+    toReturn.insert(toReturn.end() ,add.begin(),add.end() );
     }
-    if (op == "08"){
+    if (op == 08){
     //op string 0
     // 3 in vector
     toReturn.push_back(op);
-    toReturn.push_back(argumentToByte(words[1]));
-    toReturn.push_back('0');
+    vector<char> add = argumentToByte(words[1]);
+    toReturn.insert(toReturn.end() ,add.begin(),add.end() );
+    toReturn.push_back('00');
     }
     return toReturn;
 }
 
-short messageEncoder::stringToShort(String function) {}
 
-char messageEncoder::opCodeToByte(short opCode) {
-
+void messageEncoder::shortToByte(short num, char* bytesArr) {
+    bytesArr[0]=((num>>8)& 0xFF);
+    bytesArr[1] = (num & 0xFF);
+//do
 }
 
 

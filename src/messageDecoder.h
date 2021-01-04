@@ -9,10 +9,13 @@
 using namespace std;
 class messageDecoder{
     private:
+    short opcodeCurr;
+    short opcodePrev;
     public:
-    char encode(string message);
-    char opCodeToByte(short opCode);
-    char argumentToByte(string argument);
+    String decode(vector<char> message);
+    short byteToOpcode(char opCode);
+    String byteToArgument(vector<char > byte);
+    String opcodeToString(short opcode);
 
 };
 

@@ -11,10 +11,9 @@ class messageEncoder{
     public:
         messageEncoder()noexcept;
         vector<char> encode(string message);
-        char opCodeToByte(short opCode);
+        void shortToByte(short num , vector<char> bytesArr);
         vector<char> argumentToByte(string argument);
         short opToNumber(string op);
-        short stringToShort(string function);
 };
 
 #endif //BOOST_ECHO_CLIENT_MESSAGEENCODER_H
