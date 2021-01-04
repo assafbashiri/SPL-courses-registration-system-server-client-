@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/spl211/Desktop/Boost_Echo_Client/f/src/messageEncoder.cpp
+vector
+-
+messageEncoder.h
+/home/spl211/Desktop/Boost_Echo_Client/f/src/messageEncoder.h
+vector
+/home/spl211/Desktop/Boost_Echo_Client/f/src/vector
+string
+/home/spl211/Desktop/Boost_Echo_Client/f/src/string
+
+/home/spl211/Desktop/Boost_Echo_Client/f/src/messageEncoder.h
+string
+/home/spl211/Desktop/Boost_Echo_Client/f/src/string
+vector
+/home/spl211/Desktop/Boost_Echo_Client/f/src/vector
+
