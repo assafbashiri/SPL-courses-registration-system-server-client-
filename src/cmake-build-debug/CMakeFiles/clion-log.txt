@@ -1,1 +1,4 @@
-Toolchains are not configured Configure
+/snap/clion/138/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/spl211/Desktop/spl-net-main/src
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/spl211/Desktop/spl-net-main/src/cmake-build-debug

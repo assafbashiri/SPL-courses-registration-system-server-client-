@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/src.dir/connectionHandler.cpp.o CMakeFiles/src.dir/echoClient.cpp.o CMakeFiles/src.dir/main.cpp.o CMakeFiles/src.dir/messageDecoder.cpp.o CMakeFiles/src.dir/messageEncoder.cpp.o  -o src 
+/usr/bin/c++  -g   CMakeFiles/src.dir/main.cpp.o CMakeFiles/src.dir/connectionHandler.cpp.o CMakeFiles/src.dir/messageDecoder.cpp.o CMakeFiles/src.dir/messageEncoder.cpp.o CMakeFiles/src.dir/echoClient.cpp.o  -o src  -lboost_system -pthread 
