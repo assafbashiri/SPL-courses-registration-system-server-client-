@@ -3,6 +3,7 @@ package bgu.spl.net.srv;
 import bgu.spl.net.api.MessageEncoderDecoder;
 import bgu.spl.net.api.MessagingProtocol;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.function.Supplier;
@@ -30,6 +31,8 @@ public abstract class BaseServer<T> implements Server<T> {
 
         try (ServerSocket serverSock = new ServerSocket(port)) {
 			System.out.println("Server started");
+            InetAddress local = InetAddress.getLocalHost();
+            System.out.println(local.getHostAddress());
             this.sock = serverSock; //just to be able to close
             while (!Thread.currentThread().isInterrupted()) {
                 Socket clientSock = serverSock.accept();
@@ -40,6 +43,7 @@ public abstract class BaseServer<T> implements Server<T> {
 
                 execute(handler);
             }
+            System.out.println("hey m");
         } catch (IOException ex) {
         }
 

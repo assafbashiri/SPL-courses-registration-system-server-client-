@@ -32,6 +32,7 @@ public class EncoderDecoderIMP implements MessageEncoderDecoder<String> {
 
     private String popString() {
         String result = new String(bytes, 0, length, StandardCharsets.UTF_8);
+        System.out.println(result);
         length = 0;
         return result;
     }

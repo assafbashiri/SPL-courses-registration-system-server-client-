@@ -26,7 +26,7 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
     public void run() {
         try (Socket sock = this.sock) { //just for automatic closing
             int read;
-
+            //System.out.println("run-ch");
             in = new BufferedInputStream(sock.getInputStream());
             out = new BufferedOutputStream(sock.getOutputStream());
 

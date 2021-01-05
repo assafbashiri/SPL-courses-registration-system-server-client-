@@ -28,6 +28,7 @@ public class ProtocolIMP implements MessagingProtocol<String> {
 
     @Override
     public String process(String msg) {
+        System.out.println(msg);
         String [] msgLines = msg.split(" ");
         int opcode ;
         if (msgLines[0].equals("ADMINREG"))
