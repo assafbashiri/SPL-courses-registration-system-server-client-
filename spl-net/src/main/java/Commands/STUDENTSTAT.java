@@ -10,18 +10,22 @@ import bgu.spl.net.impl.rci.Command;
 import java.io.Serializable;
 import java.util.List;
 
-public class STUDENTSTAT implements Command<String[]> {
+public class STUDENTSTAT implements Command<String> {
     @Override
-    public Serializable execute(String[] arg, ProtocolIMP protocol) {
+    public Serializable execute(String arg, ProtocolIMP protocol) {
+        if (!data.Registered())
+            return "ERROR 08";//didnt registered
         User user = data.getUser(protocol.getUsername());
+        if (!user.isConnected)
+            return "ERROR 08";//didnt connect
         if (!(user instanceof Admin))
-            return "ERROR 08";
+            return "ERROR 08";//not an admin
         Admin admin = (Admin) user;
-        Student student =(Student) data.getUser(arg[1]);
+        Student student =(Student) data.getUser(arg);
         if (student == null || data.userChack(student.getUsername()))
-            return "ERROR 08";
+            return "ERROR 08";//student is not exist
         List<Integer> list= student.getCourseList();
-        String toReturn = "Student: " + arg[1] +
+        String toReturn = "Student: " + arg +
                 new StringBuilder().append("\n").append(" ").append("Courses: ").append(list).toString(); //מה זה?
         return toReturn;
 

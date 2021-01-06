@@ -11,6 +11,7 @@ public class EncoderDecoderIMP implements MessageEncoderDecoder<String> {
 
     @Override
     public String decodeNextByte(byte nextByte) {
+        System.out.println(nextByte);
         if (nextByte == '\0') {
             return popString();
         }
@@ -20,6 +21,8 @@ public class EncoderDecoderIMP implements MessageEncoderDecoder<String> {
 
     @Override
     public byte[] encode(String message) {
+        System.out.println(message+" we print the msg");
+        System.out.println(message+"\0");
         return (message+"\0").getBytes();
     }
 
@@ -32,7 +35,7 @@ public class EncoderDecoderIMP implements MessageEncoderDecoder<String> {
 
     private String popString() {
         String result = new String(bytes, 0, length, StandardCharsets.UTF_8);
-        System.out.println(result);
+        System.out.println(result+"me");
         length = 0;
         return result;
     }

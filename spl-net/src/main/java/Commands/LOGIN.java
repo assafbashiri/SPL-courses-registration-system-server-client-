@@ -9,12 +9,12 @@ import java.io.Serializable;
 public class LOGIN implements Command<String[]> {
     @Override
     public Serializable execute(String[] arg, ProtocolIMP protocol) {
-        String username = arg[1];
-        String password = arg[2];
+        String username = arg[0];
+        String password = arg[1];
         if(!data.userChack(username))
             return "ERROR 03"; //not register
         User user = data.getUser(username);
-        if(user.getPassword()!=password)
+        if(data.connectUser(username , password))
             return "ERROR 03"; //wrong password
         if (user.isConnected)
             return "ERROR 03"; //connected already

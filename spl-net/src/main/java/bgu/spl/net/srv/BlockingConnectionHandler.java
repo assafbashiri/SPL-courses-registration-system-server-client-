@@ -35,9 +35,12 @@ public class BlockingConnectionHandler<T> implements Runnable, ConnectionHandler
                 if (nextMessage != null) {
                     T response = protocol.process(nextMessage);
                     if (response != null) {
+                        System.out.println(response+ "run");
                         out.write(encdec.encode(response));
                         out.flush();
+                        System.out.println("write to socket");
                     }
+
                 }
             }
 

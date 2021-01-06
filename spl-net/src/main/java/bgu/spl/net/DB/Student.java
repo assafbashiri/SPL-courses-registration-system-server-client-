@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student extends User{
-
-    private String username;
-    private String password;
     private List<Integer> courseList ;
 
     public Student(String username, String password){
@@ -15,7 +12,7 @@ public class Student extends User{
     }
 
     public String getUsername() {
-        return username;
+        return super.username;
     }
 
     public List<Integer> getCourseList(){
@@ -24,7 +21,7 @@ public class Student extends User{
 
 
     public String getPassword() {
-        return password;
+        return super.password;
     }
 
     public void addCourse(int courseNum){

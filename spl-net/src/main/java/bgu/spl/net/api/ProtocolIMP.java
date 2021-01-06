@@ -28,33 +28,61 @@ public class ProtocolIMP implements MessagingProtocol<String> {
 
     @Override
     public String process(String msg) {
-        System.out.println(msg);
-        String [] msgLines = msg.split(" ");
-        int opcode ;
-        if (msgLines[0].equals("ADMINREG"))
-            return (String) new ADMINREG().execute(msgLines,this);
-        if (msgLines[0].equals("STUDENTREG"))
-            return (String) new STUDENTREG().execute(msgLines,this);
-        if (msgLines[0].equals("LOGIN"))
-            return (String) new LOGIN().execute(msgLines,this);
-        if (msgLines[0].equals("LOGOUT"))
-            return (String) new LOGOUT().execute(msgLines,this);
-        if (msgLines[0].equals("COURSEREG"))
-            return (String) new COURSEREG().execute(msgLines,this);
-        if (msgLines[0].equals("KDAMCHECK"))
-            return (String) new KDAMCHECK().execute(msgLines,this);
-        if (msgLines[0].equals("COURSESTAT"))
-            return (String) new COURSESTAT().execute(msgLines,this);
-        if (msgLines[0].equals("STUDENTSTAT"))
-            return (String) new STUDENTSTAT().execute(msgLines,this);
-        if (msgLines[0].equals("ISREGISTERED"))
-            return (String) new ISREGISTERED().execute(msgLines,this);
-        if (msgLines[0].equals("UNREGISTER"))
-            return (String) new UNREGISTER().execute(msgLines,this);
-        if (msgLines[0].equals("MYCOURSES"))
-            return (String) new MYCOURSES().execute(msgLines,this);
-
-        return null;
+        if (msg.length() < 4)
+            return "ERROR- WRONG";
+        System.out.println(msg+"  lets seee");
+        //System.out.println(msg.substring(0,3));
+        String op = msg.substring(0,4);
+        msg = msg.substring(4);
+        //String [] msgLines = msg.split("00");
+       // int opcode ;
+        System.out.println("processs step "+op);
+        if (op.equals("0001")) {
+            String [] msgLines = msg.split("00");
+            return (String) new ADMINREG().execute(msgLines, this);
+        }
+        else if (op.equals("0002")) {
+            String [] msgLines = msg.split("00");
+            return (String) new STUDENTREG().execute(msgLines, this);
+        }
+        else if (op.equals("0003")) {
+            String [] msgLines = msg.split("00");
+            return (String) new LOGIN().execute(msgLines, this);
+        }
+        else if (op.equals("0004")) {
+            String [] msgLines = msg.split("00");
+            return (String) new LOGOUT().execute(msgLines, this);
+        }
+        else if (op.equals("0005")) {
+           // String [] msgLines = msg.split("00");
+            return (String) new COURSEREG().execute(msg, this);
+        }
+        else if (op.equals("0006")) {
+            //String [] msgLines = msg.split("00");
+            return (String) new KDAMCHECK().execute(msg, this);
+        }
+        else if (op.equals("0007")) {
+            //String [] msgLines = msg.split("00");
+            return (String) new COURSESTAT().execute(msg, this);
+        }
+        else if (op.equals("0008")) {
+            //String [] msgLines = msg.split("00");
+            return (String) new STUDENTSTAT().execute(msg.substring(0,(msg.length()-2)), this);
+        }
+        else if (op.equals("0009")) {
+            //String [] msgLines = msg.split("00");
+            return (String) new ISREGISTERED().execute(msg , this);
+        }
+        else if (op.equals("0010")) {
+            //String[] msgLines = msg.split("00");
+            return (String) new UNREGISTER().execute(msg, this);
+        }
+        else if (op.equals("0011")) {
+            //String[] msgLines = msg.split("00");
+            return (String) new MYCOURSES().execute(" ", this);
+        }
+        else
+            return "ERROR"+op;
     }
 
     @Override

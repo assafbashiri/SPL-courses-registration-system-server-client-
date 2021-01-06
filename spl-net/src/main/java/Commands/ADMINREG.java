@@ -10,8 +10,8 @@ import java.io.Serializable;
 public class ADMINREG implements Command<String[]> {
     @Override
     public Serializable execute(String[] arg, ProtocolIMP protocol) {
-        String username = arg[1];
-        String password = arg[2];
+        String username = arg[0];
+        String password = arg[1];
         if (data.userChack(username))
             return "ERROR 01"; //registered already
         else {

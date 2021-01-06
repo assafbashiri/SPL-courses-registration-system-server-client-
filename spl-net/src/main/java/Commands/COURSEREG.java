@@ -8,10 +8,10 @@ import bgu.spl.net.impl.rci.Command;
 
 import java.io.Serializable;
 
-public class COURSEREG implements Command<String[]> {
+public class COURSEREG implements Command<String> {
     @Override
-    public Serializable execute(String[] arg, ProtocolIMP protocol) {
-        int courseNum =  Integer.parseInt(arg[1]);
+    public Serializable execute(String arg, ProtocolIMP protocol) {
+        int courseNum =  Integer.parseInt(arg);
         Course course = data.getCourse(courseNum);
         User user = data.getUser(protocol.getUsername());
 

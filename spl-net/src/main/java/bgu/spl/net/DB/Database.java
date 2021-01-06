@@ -21,9 +21,7 @@ public class Database {
 
 	//to prevent user from creating new Database
 	private Database() {
-		// רשימת קורסים+קורסי קדם
-		//שמות משתמשים+סיסמאות+סוג משתמש
-		//סטודנטים+
+		initialize("abc");
 	}
 
 	/**
@@ -38,8 +36,22 @@ public class Database {
 	 * into the Database, returns true if successful.
 	 */
 	boolean initialize(String coursesFilePath) {
-		// TODO: implement
-		return false;
+		{
+			try {
+				File myObj = new File("Courses.txt");
+				Scanner myReader = new Scanner(myObj);
+				while (myReader.hasNextLine()) {
+					String data = myReader.nextLine();
+					Course course = readLine(data);
+					courses.put(course.getIdNumber(), course);
+				}
+				myReader.close();
+			} catch (FileNotFoundException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		}
+		return true;
 	}
 
 	private static class SingletonHolder {
@@ -52,6 +64,7 @@ public class Database {
 	public boolean userChack (String username){
 		return users.containsKey(username);
 	}
+
 	public void addUser(User user){
 		String username = user.username;
 		users.put(username,user);
@@ -133,7 +146,23 @@ public class Database {
 
 		return toAdd;
 	}
-
+	//just added
+	public boolean connectUser(String name , String pass){
+		User u = this.getUser(name);
+		if (u.password == pass)
+			return true;
+		if (u.getPassword() == pass)
+			return true;
+		return false;
+	}
+	//finish just
+	//add now
+	public boolean Registered(){
+		if (users.isEmpty())
+			return false;
+		return true;
+	}
+	//finish
 
 }
 

@@ -9,10 +9,10 @@ public class Admin extends User{
     }
 
     public String getUsername() {
-        return username;
+        return super.username;
     }
 
     public String getPassword() {
-        return password;
+        return super.password;
     }
 }

@@ -8,15 +8,27 @@ import bgu.spl.net.impl.rci.Command;
 
 import java.io.Serializable;
 
-public class KDAMCHECK implements Command<String[]> {
+public class KDAMCHECK implements Command<String> {
     @Override
-    public Serializable execute(String[] arg, ProtocolIMP protocol) {
-        int courseNum = Integer.parseInt(arg[1]);
-        Course course = data.getCourse(courseNum);
+    public Serializable execute(String arg, ProtocolIMP protocol) {
+        if (!data.Registered())
+            return "ERROR 06";//didnt registered
         User user = data.getUser(protocol.getUsername());
+        if (!user.isConnected)
+            return "ERROR 06";//didnt connect
+        int courseNum = Integer.parseInt(arg);
+        Course course = data.getCourse(courseNum);
         if(!(user instanceof Student)){
-            return "ERROR 06/0"; //not a student
+            return "ERROR 06"; //not a student
         }
-        return course.getKdam().toString(); //לבדוק
+        String toReturn = "[";
+        int[] kdam = course.getKdam();
+        for (int i = 0; i<kdam.length ; i++ ) {
+            toReturn = toReturn + kdam[i];
+            if (i < kdam.length-1)
+                toReturn = toReturn+",";
+        }
+        toReturn = toReturn+"]";
+        return toReturn;
     }
 }

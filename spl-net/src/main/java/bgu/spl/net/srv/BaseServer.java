@@ -32,6 +32,7 @@ public abstract class BaseServer<T> implements Server<T> {
         try (ServerSocket serverSock = new ServerSocket(port)) {
 			System.out.println("Server started");
             InetAddress local = InetAddress.getLocalHost();
+            System.out.println("step");
             System.out.println(local.getHostAddress());
             this.sock = serverSock; //just to be able to close
             while (!Thread.currentThread().isInterrupted()) {
