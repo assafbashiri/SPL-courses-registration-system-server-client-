@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/spl211/Desktop/Client/include/connectionHandler.h
+string
+-
+iostream
+-
+boost/asio.hpp
+-
+
+/home/spl211/Desktop/Client/src/echoClient.cpp
+stdlib.h
+-
+../include/connectionHandler.h
+/home/spl211/Desktop/Client/include/connectionHandler.h
+
