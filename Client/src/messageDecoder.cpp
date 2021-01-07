@@ -14,9 +14,9 @@ using namespace std;
 messageDecoder::messageDecoder(ConnectionHandler& connectionHandler1){
     connectionHandler = &connectionHandler1;
 }
-void messageDecoder::hey(){
-    cout<<"hey<<endl";
-}
+//void messageDecoder::hey(){
+    //cout<<"hey<<endl";
+//}
 
 void messageDecoder::run() {
     cout<<"we got to the decoder"<<endl;
@@ -26,20 +26,19 @@ void messageDecoder::run() {
             std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
         }
-        cout<<"didnt stuck"<<endl;
-        int len=answer.length();
+
+        //int len=answer.length();
         //answer.resize(len-1);
-        cout<<answer<<" this is my answer"<<endl;
+        cout<<answer<<endl;
 
         }
     }
 
 
-string messageDecoder::decoder(vector<char> curr) {
+//string messageDecoder::decoder(vector<char> curr) {
 
-}
-string messageDecoder::getLine() {
-cout<<"hey<<endl";
-}
+//}
+//string messageDecoder::getLine() {
+//}
 
 

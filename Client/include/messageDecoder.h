@@ -10,14 +10,14 @@
 using namespace std;
 class messageDecoder{
 private:
-    short op_curr;
-    short op_prev;
+    //short op_curr;
+    //short op_prev;
     ConnectionHandler* connectionHandler;
 public:
-    string decoder(vector<char>);
-    string getLine();
-    string getBytes();
-    string readfromkeyboard();
+    //string decoder(vector<char>);
+    //string getLine();
+    //string getBytes();
+    //string readfromkeyboard();
     messageDecoder(ConnectionHandler& connectionHandler1);
     void run();
     static void hey();

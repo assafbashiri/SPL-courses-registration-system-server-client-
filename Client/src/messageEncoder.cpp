@@ -4,7 +4,6 @@
 
 #include <vector>
 #include "../include/messageEncoder.h"
-#include "vector"
 #include "string"
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -137,7 +136,7 @@ string messageEncoder::encode(string message) {
     cout<<toReturn<<" me"<<endl;
     //toReturn.push_back(function);
     //toReturn.push_back(' ');
-/*
+
     shortToByte(function,op);
     cout<<op[0]<<"ehy"<<endl;
     cout<<op[1]<<"hey"<<endl;

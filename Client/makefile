@@ -1,37 +1,29 @@
-LDFLAGS:=-lboost_system
-INCLUDEPATH+="C:\Users\glevy\Downloads\boost_1_75_0"
-# All Targets
-all: bin/BGRsclient
+CFLAGS:=-c -Wall -Weffc++ -g -std=c++11 -Iinclude
+LDFLAGS:=-lboost_system -pthread
 
-# Tool invocations
-# Executable "BGRsclient" depends on the files BGRsclient.o connectionHandler.o echoClient.o messageEncoder.o messageDecoder.o
-bin/BGRsclient: bin/BGRsclient.o bin/connectionHandler.o bin/echoClient.o  messageEncoder.o messageDecoder.o
-	@echo 'Building target: BGRsclient'
-	@echo 'Invoking: C++ Linker'
-	g++ -o bin/BGRsclient bin/BGRsclient.o bin/connectionHandler.o bin/echoClient.o  messageEncoder.o messageDecoder.o $(LDFLAGS)
-	@echo 'Finished building target: BGRsclient'
-	@echo ' '
+all: bin/BGRSclient
 
-#BGRsclient.o Depends on the source and header files src/BGRsclient.cpp include/connectionHandler.h
-bin/BGRsclient.o: src/BGRsclient.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/BGRsclient.o src/BGRsclient.cpp
+bin/BGRSclient: bin/connectionHandler.o bin/echoClient.o bin/messageDecoder.o bin/messageEncoder.o bin/client.o
+	@echo "Building target: bin/BGRSclient"
+	g++ -o bin/BGRSclient bin/connectionHandler.o bin/echoClient.o bin/messageDecoder.o bin/messageEncoder.o bin/client.o $(LDFLAGS)
+	@echo "finished Linking"
 
-#connectionHandler.o Depends on the source and header files src/connectionHandler.cpp include/connectionHandler.h
 bin/connectionHandler.o: src/connectionHandler.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/connectionHandler.o src/connectionHandler.cpp $(LDFLAGS)
+	g++ $(CFLAGS) -o bin/connectionHandler.o src/connectionHandler.cpp
 
-#echoClient.o Depends on the source and header files src/echoClient.cpp include/echoClient.h
 bin/echoClient.o: src/echoClient.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/echoClient.o src/echoClient.cpp
+	g++ $(CFLAGS) -o bin/echoClient.o src/echoClient.cpp
 
-#messageDecoder.o Depends on the source and header files src/echoClient.cpp include/echoClient.h
 bin/messageDecoder.o: src/messageDecoder.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/messageDecoder.o src/messageDecoder.cpp
+	g++ $(CFLAGS) -o bin/messageDecoder.o src/messageDecoder.cpp
 
-#messageEncoder.o Depends on the source and header files src/echoClient.cpp include/echoClient.h
+
 bin/messageEncoder.o: src/messageEncoder.cpp
-	g++ -g -Wall -Weffc++ -std=c++11 -c -Iinclude -o bin/messageEncoder.o src/messageEncoder.cpp
+	g++ $(CFLAGS) -o bin/messageEncoder.o src/messageEncoder.cpp
 
-#Clean the build directory
+bin/client.o: src/client.cpp
+	g++ $(CFLAGS) -o bin/client.o src/client.cpp
+
+.PHONY: clean
 clean:
 	rm -f bin/*

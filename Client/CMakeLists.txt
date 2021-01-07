@@ -20,7 +20,7 @@ link_libraries("-pthread")
 include_directories(include)
 
 add_executable(src
-        src/BGRsclient.cpp
+        src/client.cpp
         src/connectionHandler.cpp
         src/messageDecoder.cpp
         src/messageEncoder.cpp
