@@ -1,6 +1,5 @@
 //
 // Created by spl211 on 03/01/2021.
-
 #include <string>
 #include <mutex>
 #include "../include/connectionHandler.h"
@@ -10,11 +9,11 @@
 
 using namespace std;
     int main(int argc , char *argv[]) {
-        /*if (argc < 3) {
+        if (argc < 3) {
             std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
             return -1;
         }
-*/
+
         std::mutex mutex;
         std::string host = argv[1];
         //std::string host ="127.0.0.1";
@@ -25,7 +24,6 @@ using namespace std;
             std::cerr << "Cannot connect to " << host << ":" << port << std::endl;
             return 1;
         }
-        cout<<"connect"<<endl;
         messageEncoder enc(ch);
         messageDecoder dec(ch);
         //readFromSocket socket(ch);

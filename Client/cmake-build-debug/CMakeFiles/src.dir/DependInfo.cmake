@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/spl211/Downloads/spl-net-main/Client/src/client.cpp" "/home/spl211/Downloads/spl-net-main/Client/cmake-build-debug/CMakeFiles/src.dir/src/client.cpp.o"
-  "/home/spl211/Downloads/spl-net-main/Client/src/connectionHandler.cpp" "/home/spl211/Downloads/spl-net-main/Client/cmake-build-debug/CMakeFiles/src.dir/src/connectionHandler.cpp.o"
-  "/home/spl211/Downloads/spl-net-main/Client/src/echoClient.cpp" "/home/spl211/Downloads/spl-net-main/Client/cmake-build-debug/CMakeFiles/src.dir/src/echoClient.cpp.o"
-  "/home/spl211/Downloads/spl-net-main/Client/src/messageDecoder.cpp" "/home/spl211/Downloads/spl-net-main/Client/cmake-build-debug/CMakeFiles/src.dir/src/messageDecoder.cpp.o"
-  "/home/spl211/Downloads/spl-net-main/Client/src/messageEncoder.cpp" "/home/spl211/Downloads/spl-net-main/Client/cmake-build-debug/CMakeFiles/src.dir/src/messageEncoder.cpp.o"
+  "/home/spl211/Desktop/tester/Client/src/client.cpp" "/home/spl211/Desktop/tester/Client/cmake-build-debug/CMakeFiles/src.dir/src/client.cpp.o"
+  "/home/spl211/Desktop/tester/Client/src/connectionHandler.cpp" "/home/spl211/Desktop/tester/Client/cmake-build-debug/CMakeFiles/src.dir/src/connectionHandler.cpp.o"
+  "/home/spl211/Desktop/tester/Client/src/echoClient.cpp" "/home/spl211/Desktop/tester/Client/cmake-build-debug/CMakeFiles/src.dir/src/echoClient.cpp.o"
+  "/home/spl211/Desktop/tester/Client/src/messageDecoder.cpp" "/home/spl211/Desktop/tester/Client/cmake-build-debug/CMakeFiles/src.dir/src/messageDecoder.cpp.o"
+  "/home/spl211/Desktop/tester/Client/src/messageEncoder.cpp" "/home/spl211/Desktop/tester/Client/cmake-build-debug/CMakeFiles/src.dir/src/messageEncoder.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

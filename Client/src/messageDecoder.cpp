@@ -19,7 +19,6 @@ messageDecoder::messageDecoder(ConnectionHandler& connectionHandler1){
 //}
 
 void messageDecoder::run() {
-    cout<<"we got to the decoder"<<endl;
     while (true) {
         string answer;
         if (!connectionHandler->getLine(answer)) {
@@ -30,9 +29,14 @@ void messageDecoder::run() {
         //int len=answer.length();
         //answer.resize(len-1);
         cout<<answer<<endl;
-
+        if(answer == "ACK 4")//check
+            try {
+                terminate();
+            }//till here
+            catch (std::exception& e) {}
+            }
         }
-    }
+
 
 
 //string messageDecoder::decoder(vector<char> curr) {

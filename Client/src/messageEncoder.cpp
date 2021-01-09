@@ -28,7 +28,7 @@ void messageEncoder::run(){
         string line(buf);
         int len=line.length();
         string toSend = encode(line);
-        cout<<toSend<<endl;
+        //cout<<toSend<<endl;
         //who is convert the string to utf-8?
         //maybe we need to do that.
         //encode->sendbyte
@@ -62,40 +62,37 @@ string messageEncoder::encode(string message) {
 }
  */
     if (opCode == "ADMINREG"){
-        /*
-        vector<char> vec;
-        char ch[2];
-        shortToByte(1 , ch);
-        vec.push_back(ch[0]);
-        vec.push_back(ch[1]);
-        for(auto i : vec)
-        short op = 01;
-         */
         string username = words[1];
         string password = words[2];
         toReturn = "0001";
+        //replace(username.begin(), username.end() , '0' ,'*');
         toReturn.append(username);
-        toReturn.append("00");
+        toReturn.append("000/");
+        //replace(password.begin(), password.end() , '0' ,'*');
         toReturn.append(password);
-        toReturn.append("00");
+        toReturn.append("000/");
     }
     if (opCode == "STUDENTREG"){
         string username = words[1];
         string password = words[2];
         toReturn = "0002";
+        //replace(username.begin(), username.end() , '0' ,'*');
         toReturn.append(username);
-        toReturn.append("00");
+        toReturn.append("000/");
+        //replace(password.begin(), password.end() , '0' ,'*');
         toReturn.append(password);
-        toReturn.append("00");
+        toReturn.append("000/");
     }
     if (opCode == "LOGIN"){
         string username = words[1];
         string password = words[2];
         toReturn = "0003";
+        //replace(username.begin(), username.end() , '0' ,'*');
         toReturn.append(username);
-        toReturn.append("00");
+        toReturn.append("000/");
+        //replace(password.begin(), password.end() , '0' ,'*');
         toReturn.append(password);
-        toReturn.append("00");
+        toReturn.append("000/");
     }
     if (opCode == "LOGOUT"){
         toReturn = "0004";
@@ -114,12 +111,16 @@ string messageEncoder::encode(string message) {
     }
     if (opCode == "STUDENTSTAT"){
         toReturn = "0008";
-        toReturn.append(words[1]);
-        toReturn.append("00");
+        string name = words[1];
+        //replace(name.begin(), name.end() , '0' ,'*');
+        toReturn.append(name);
+        toReturn.append("000/");
     }
     if (opCode == "ISREGISTERED"){
         toReturn = "0009";
-        toReturn.append(words[1]);
+        string name = words[1];
+        //replace(name.begin(), name.end() , '0' ,'*');
+        toReturn.append(name);
     }
     if (opCode == "UNREGISTER"){
         toReturn = "0010";

@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/spl211/Downloads/spl-net-main/Client/include 
+CXX_INCLUDES = -I/home/spl211/Desktop/tester/Client/include 
 

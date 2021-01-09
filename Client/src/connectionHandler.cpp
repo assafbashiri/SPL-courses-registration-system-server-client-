@@ -28,13 +28,11 @@ bool ConnectionHandler::connect() {
         std::cerr << "Connection failed (Error: " << e.what() << ')' << std::endl;
         return false;
     }
-    cout<<"connected my mannnn"<<endl;
     return true;
 }
  
 bool ConnectionHandler::getBytes(char bytes[], unsigned int bytesToRead) {
     size_t tmp = 0;
-    cout<<"getbytes"<<endl;
 	boost::system::error_code error;
     try {
         while (!error && bytesToRead > tmp ) {
@@ -67,7 +65,6 @@ bool ConnectionHandler::sendBytes(const char bytes[], int bytesToWrite) {
 }
  
 bool ConnectionHandler::getLine(std::string& line) {
-    cout<<"getLine"<<endl;
     return getFrameAscii(line, '\0');
 }
 
@@ -78,7 +75,6 @@ bool ConnectionHandler::sendLine(std::string& line) {
 
 bool ConnectionHandler::getFrameAscii(std::string& frame, char delimiter) {
     char ch;
-    cout<<"getfarmeascii"<<endl;
     // Stop when we encounter the null character.
     // Notice that the null character is not appended to the frame string.
     try {

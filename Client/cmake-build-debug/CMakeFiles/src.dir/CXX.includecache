@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/spl211/Downloads/spl-net-main/Client/include/connectionHandler.h
+/home/spl211/Desktop/tester/Client/include/connectionHandler.h
 string
 -
 iostream
@@ -14,33 +14,25 @@ iostream
 boost/asio.hpp
 -
 
-/home/spl211/Downloads/spl-net-main/Client/include/messageDecoder.h
+/home/spl211/Desktop/tester/Client/include/messageDecoder.h
 vector
-/home/spl211/Downloads/spl-net-main/Client/include/vector
+/home/spl211/Desktop/tester/Client/include/vector
 connectionHandler.h
-/home/spl211/Downloads/spl-net-main/Client/include/connectionHandler.h
+/home/spl211/Desktop/tester/Client/include/connectionHandler.h
 string
 -
 
-/home/spl211/Downloads/spl-net-main/Client/include/messageEncoder.h
-string
-/home/spl211/Downloads/spl-net-main/Client/include/string
-vector
-/home/spl211/Downloads/spl-net-main/Client/include/vector
-connectionHandler.h
-/home/spl211/Downloads/spl-net-main/Client/include/connectionHandler.h
-
-/home/spl211/Downloads/spl-net-main/Client/src/client.cpp
-string
--
-mutex
--
-../include/connectionHandler.h
-/home/spl211/Downloads/spl-net-main/Client/include/connectionHandler.h
-../include/messageEncoder.h
-/home/spl211/Downloads/spl-net-main/Client/include/messageEncoder.h
+/home/spl211/Desktop/tester/Client/src/messageDecoder.cpp
 ../include/messageDecoder.h
-/home/spl211/Downloads/spl-net-main/Client/include/messageDecoder.h
-thread
+/home/spl211/Desktop/tester/Client/include/messageDecoder.h
+vector
+-
+vector
+/home/spl211/Desktop/tester/Client/src/vector
+string
+/home/spl211/Desktop/tester/Client/src/string
+boost/algorithm/string/classification.hpp
+-
+boost/algorithm/string/split.hpp
 -
 
