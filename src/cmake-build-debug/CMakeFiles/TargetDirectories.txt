@@ -1,3 +1,0 @@
-/home/spl211/Desktop/spl-net-main/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/spl211/Desktop/spl-net-main/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/spl211/Desktop/spl-net-main/src/cmake-build-debug/CMakeFiles/src.dir
